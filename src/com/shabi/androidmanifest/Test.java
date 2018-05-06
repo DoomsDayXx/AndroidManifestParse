@@ -12,7 +12,7 @@ import java.util.List;
 public class Test {
 
     public static void main(String... args) throws IOException {
-        byte[] data = Utils.getBytye(new File("oho.xml"));
+        byte[] data = Utils.getBytye(new File("AndroidManifest.xml"));
         Parser parser = new Parser(data);
 
         List<String> mStrings = parser.mStringChunk.mStrings;
@@ -24,10 +24,10 @@ public class Test {
             String align = getAlign(len);
             TagChunk mTagChunk = tagChunks.get(index);
             switch (mTagChunk.flag) {
-                case 0://结束
+                case 0://结束标签
                     System.out.println(String.format("%s<%s />", getAlign(--len), mStrings.get(mTagChunk.name)));
                     break;
-                case 1310740://开始:
+                case 1310740://开始标签
                     len++;
                     StringBuilder sb = new StringBuilder();
                     for (TagAttribute ta : mTagChunk.mTagAttributes) {
