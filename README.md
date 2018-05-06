@@ -1,0 +1,2 @@
+# AndroidManifestParse
+Parse AndroidManifest binery
